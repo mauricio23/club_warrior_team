@@ -265,5 +265,48 @@ section h2 {
         object-fit: contain;
         background: #000;
     }
+    /* =========================
+   🔧 FIX DEFINITIVO GALERÍA
+   ========================= */
+
+/* ESCRITORIO */
+.slider {
+    width: 480px !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    aspect-ratio: 1 / 1 !important;
+    overflow: hidden !important;
+}
+
+.slides {
+    display: flex !important;
+    width: 100% !important;
+    height: 100% !important;
+    transition: transform 0.5s ease-in-out !important;
+}
+
+.slides img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    flex-shrink: 0 !important;
+}
+
+
+/* 📱 CELULAR */
+@media (max-width: 768px) {
+
+    .slider {
+        width: 90% !important;
+        max-width: 360px !important;
+        aspect-ratio: 1 / 1 !important;
+    }
+
+    .slides img {
+        height: auto !important;
+        width: 100% !important;
+        object-fit: cover !important;
+    }
+}
 
 }
