@@ -24,9 +24,7 @@ body {
     background-attachment: fixed;
 }
 
-html, body {
-    overflow-x: hidden;
-}
+html, body { overflow-x: hidden; }
 
 /* HEADER */
 header {
@@ -39,10 +37,7 @@ header {
     flex-wrap: wrap;
 }
 
-.logo {
-    display: flex;
-    align-items: center;
-}
+.logo { display: flex; align-items: center; }
 
 .logo img {
     height: 70px;
@@ -55,9 +50,7 @@ nav ul {
     display: flex;
 }
 
-nav ul li {
-    margin-left: 2rem;
-}
+nav ul li { margin-left: 2rem; }
 
 nav ul li a {
     color: white;
@@ -66,15 +59,10 @@ nav ul li a {
 }
 
 /* SECTIONS */
-section {
-    padding: 2rem;
-    text-align: center;
-}
+section { padding: 2rem; text-align: center; }
 
 /* BANNER */
-.banner {
-    position: relative;
-}
+.banner { position: relative; }
 
 .banner img {
     width: 100%;
@@ -94,7 +82,6 @@ section {
     max-width: 60%;
 }
 
-/* OVERLAY TEXT */
 .overlay h2 {
     font-size: 1.4rem;
     font-weight: 900;
@@ -116,10 +103,14 @@ section {
     margin-top: 1rem;
 }
 
-/* SLIDER PC NORMAL */
+/* =========================
+   🎯 SLIDER FUNCIONAL REAL
+   ========================= */
+
+/* ESCRITORIO */
 .slider {
     position: relative;
-    width: 500px;
+    width: 480px;
     max-width: 100%;
     aspect-ratio: 1 / 1;
     margin: 0 auto;
@@ -152,6 +143,7 @@ section {
     border: none;
     background: rgba(0,0,0,0.6);
     color: white;
+    cursor: pointer;
 }
 
 /* CARDS */
@@ -222,7 +214,10 @@ section h2 {
     margin-bottom: 25px;
 }
 
-/* ✅ CELULAR*/
+/* =========================
+   📱 RESPONSIVE MÓVIL
+   ========================= */
+
 @media (max-width: 768px) {
 
     header {
@@ -230,83 +225,29 @@ section h2 {
         text-align: center;
     }
 
-    nav ul {
-        flex-direction: column;
-    }
+    nav ul { flex-direction: column; }
 
-    .banner img {
-        height: 220px;
-    }
+    .banner img { height: 220px; }
 
     .overlay {
         top: 45%;
         max-width: 90%;
     }
 
-    section h2 {
-        font-size: 1.2rem;
-    }
+    section h2 { font-size: 1.2rem; }
 
-    /* GALERÍA CELULAR CORREGIDA */
+    /* 🎯 GALERÍA MÓVIL */
     .slider {
         width: 90%;
-        max-width: 380px;
-        aspect-ratio: auto;
+        max-width: 360px;
+        aspect-ratio: 1 / 1;   /* mantiene cuadrado */
     }
 
-    .slides {
-        width: 100%;
-    }
+    .slides { height: 100%; }
 
     .slides img {
         width: 100%;
-        height: auto;
-        flex-shrink: 0;
-        object-fit: contain;
-        background: #000;
+        height: 100%;
+        object-fit: cover;    /* sin franjas negras */
     }
-    /* =========================
-   🔧 FIX DEFINITIVO GALERÍA
-   ========================= */
-
-/* ESCRITORIO */
-.slider {
-    width: 480px !important;
-    max-width: 100% !important;
-    margin: 0 auto !important;
-    aspect-ratio: 1 / 1 !important;
-    overflow: hidden !important;
-}
-
-.slides {
-    display: flex !important;
-    width: 100% !important;
-    height: 100% !important;
-    transition: transform 0.5s ease-in-out !important;
-}
-
-.slides img {
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover !important;
-    flex-shrink: 0 !important;
-}
-
-
-/* 📱 CELULAR */
-@media (max-width: 768px) {
-
-    .slider {
-        width: 90% !important;
-        max-width: 360px !important;
-        aspect-ratio: 1 / 1 !important;
-    }
-
-    .slides img {
-        height: auto !important;
-        width: 100% !important;
-        object-fit: cover !important;
-    }
-}
-
 }
