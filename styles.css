@@ -426,27 +426,30 @@ section h2::after { right: -32px; }
       font-size: 14px;
   }
 
-  /* GALERÍA 100% REAL EN MÓVIL */
-/* GALERÍA CORRECTA PARA IMÁGENES VERTICALES EN CELULAR */
+  /* GALERÍA PERFECTA EN CELULAR - SIN BARRAS NEGRAS */
 @media (max-width: 768px) {
 
   .slider {
       width: 100vw;
       max-width: 100vw;
       height: auto;
-      aspect-ratio: auto; /* ELIMINA EL CUADRADO */
+      aspect-ratio: unset;
+      background: transparent;   /* quita fondo negro */
+      margin: 0;
       border-radius: 0;
+      box-shadow: none;
   }
 
   .slides {
       height: auto;
+      align-items: stretch;
   }
 
   .slides img {
       width: 100vw;
-      height: auto;
-      object-fit: contain; /* MUESTRA LA FOTO COMPLETA */
-      background: #000; /* relleno elegante si sobra espacio */
+      height: auto;              /* se adapta */
+      object-fit: cover;         /* rellena sin franjas */
+      background: none;
   }
 
 }
