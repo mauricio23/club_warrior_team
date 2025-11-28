@@ -7,21 +7,7 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
-<script>
-let index = 0;
 
-function mover(direccion) {
-    const slides = document.querySelector('.slides');
-    const total = slides.children.length;
-
-    index += direccion;
-
-    if (index < 0) index = total - 1;
-    if (index >= total) index = 0;
-
-    slides.style.transform = `translateX(-${index * 100}%)`;
-}
-</script>
 <body>
     <header>
         <div class="logo">
@@ -212,5 +198,21 @@ function mover(direccion) {
     </a>
 
     <script src="script.js"></script>
+
+    <script>
+    let index = 0;
+
+    function mover(direccion) {
+    const slides = document.querySelector('.slides');
+    const total = slides.children.length;
+
+    index += direccion;
+
+    if (index < 0) index = total - 1;
+    if (index >= total) index = 0;
+
+    slides.style.transform = `translateX(-${index * 100}%)`;
+}
+</script>
 </body>
 </html>

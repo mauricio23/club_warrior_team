@@ -8,11 +8,9 @@
 /* Colores principales */
 body {
     font-family: Arial, sans-serif;
-    color: #003366; /* Texto azul oscuro */
+    color: #003366;
     line-height: 1.6;
-
-    /* Fondo con gradiente suave y textura ligera */
-    background: linear-gradient(160deg, #f0f8ff, #aed6f1); /* Azul muy claro a azul suave */
+    background: linear-gradient(160deg, #f0f8ff, #aed6f1);
     background-image:
         linear-gradient(160deg, #f0f8ff, #aed6f1),
         repeating-linear-gradient(
@@ -22,9 +20,15 @@ body {
             transparent 20px,
             transparent 40px
         );
-    background-blend-mode: overlay; /* Combina textura con gradiente */
-    background-attachment: fixed; /* Mantiene fondo fijo al hacer scroll */
+    background-blend-mode: overlay;
+    background-attachment: fixed;
 }
+
+html, body {
+    overflow-x: hidden;
+}
+
+/* HEADER */
 header {
     display: flex;
     justify-content: space-between;
@@ -32,6 +36,7 @@ header {
     padding: 1rem 2rem;
     background-color: #003366;
     color: #FFFFFF;
+    flex-wrap: wrap;
 }
 
 .logo {
@@ -45,6 +50,7 @@ header {
     object-fit: contain;
 }
 
+/* NAV */
 nav ul {
     list-style: none;
     display: flex;
@@ -60,56 +66,44 @@ nav ul li a {
     font-weight: bold;
 }
 
+/* SECCIONES */
 section {
     padding: 2rem;
     text-align: center;
 }
 
+/* BANNER */
 .banner {
     position: relative;
 }
 
 .banner img {
     width: 100%;
-    height: 400px;   /* Ajusta este valor a tu gusto */
+    height: 400px;
     object-fit: cover;
 }
 
-/* TEXTO SOBRE BANNER */
+/* OVERLAY */
 .overlay {
     position: absolute;
     top: 15%;
     left: 50%;
     transform: translate(-50%, -50%);
-    padding: 0.8rem 1.5rem;       /* Más pequeño */
-    border-radius: 8px;
-    background-color: #aed6f1;    /* Fondo azul claro */
-    text-align: center;
-    max-width: 70%;               /* Ocupa menos espacio */
-    animation: overlayEntrada 1s ease-out forwards; /* Animación al cargar */
-}
-
-/* TEXTO SOBRE BANNER MÁS PEQUEÑO */
-.overlay {
-    position: absolute;
-    top: 15%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 0.5rem 1rem;        /* Más pequeño */
+    padding: 0.5rem 1rem;
     border-radius: 6px;
-    background-color: #aed6f1;   /* Fondo azul claro */
+    background-color: #aed6f1;
     text-align: center;
-    max-width: 60%;              /* Ocupa menos espacio */
+    max-width: 60%;
     animation: overlayEntrada 1s ease-out forwards;
 }
 
-/* TITULO EN BANNER MÁS PEQUEÑO */
+/* TEXTO BANNER */
 .overlay h2 {
-    font-size: 1.4rem;           /* Más pequeño */
+    font-size: 1.4rem;
     font-weight: 900;
     text-transform: uppercase;
     letter-spacing: 1px;
-    color: #1B4F72;              /* Azul oscuro */
+    color: #1B4F72;
     text-shadow: 0 0 2px rgba(255,255,255,0.5);
     margin-bottom: 6px;
     opacity: 0;
@@ -117,10 +111,9 @@ section {
     animation-delay: 0.2s;
 }
 
-/* SUBTITULO BANNER MÁS PEQUEÑO */
 .overlay p {
-    font-size: 0.85rem;          /* Más pequeño */
-    color: #0B3C5D;              /* Azul más oscuro */
+    font-size: 0.85rem;
+    color: #0B3C5D;
     opacity: 0;
     animation: subtituloEntrada 1s ease-out forwards;
     animation-delay: 0.4s;
@@ -159,6 +152,8 @@ section {
         opacity: 1;
     }
 }
+
+/* GRIDS */
 .entrenadores-grid, .planes-grid, .galeria-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -166,11 +161,12 @@ section {
     margin-top: 1rem;
 }
 
-/* Estilo individual de galería (más pequeño) */
+/* SLIDER RESPONSIVE */
 .slider {
     position: relative;
-    width: 500px;
-    height: 500px;
+    width: 100%;
+    max-width: 500px;
+    aspect-ratio: 1 / 1;
     margin: auto;
     overflow: hidden;
     border-radius: 12px;
@@ -184,13 +180,13 @@ section {
 }
 
 .slides img {
-    width: 100%;        /* MISMO ANCHO */
-    height: 100%;       /* MISMO ALTO */
-    flex-shrink: 0;     /* NO SE ENCOGEN */
-    object-fit: cover; /* RECORTE LIMPIO */
+    width: 100%;
+    height: 100%;
+    flex-shrink: 0;
+    object-fit: cover;
 }
 
-/* Flechas */
+/* FLECHAS */
 .prev, .next {
     position: absolute;
     top: 50%;
@@ -207,28 +203,14 @@ section {
 .prev { left: 10px; }
 .next { right: 10px; }
 
-/* Solo para el título Galería */
-#galeria h2::before {
-    left: -16px;   /* más cerca */
-}
-
-#galeria h2::after {
-    right: -16px;  /* más cerca */
-}
-
-#galeria h2::before,
-#galeria h2::after {
-    width: 14px;   /* rayas más cortas */
-}
-
-
+/* TARJETAS */
 .entrenador, .plan {
     background-color: #f0f0f0;
     padding: 1rem;
     border-radius: 5px;
 }
 
-/* ICONOS DE PLANES DEL MISMO TAMAÑO */
+/* ICONOS */
 .icono-plan-img {
     width: 180px;
     height: 180px;
@@ -237,7 +219,7 @@ section {
     margin: 0 auto 10px;
 }
 
-/* TABLA MODERNA Y ELEGANTE */
+/* TABLA */
 table {
     width: 100%;
     max-width: 900px;
@@ -250,7 +232,6 @@ table {
     font-size: 15px;
 }
 
-/* encabezado */
 table thead {
     background-color: #003366;
     color: white;
@@ -262,25 +243,22 @@ table th {
     letter-spacing: 0.5px;
 }
 
-/* filas */
 table td {
     padding: 12px;
     color: #003366;
     border-bottom: 1px solid #eee;
 }
 
-/* zebra */
 table tbody tr:nth-child(even) {
     background-color: #f6f9fc;
 }
 
-/* animación hover */
 table tbody tr:hover {
     background-color: #e6f0ff;
     transition: background 0.3s ease;
 }
 
-/* responsive scrolling */
+/* TABLA MOVIL */
 @media (max-width: 600px) {
     table {
         display: block;
@@ -289,6 +267,7 @@ table tbody tr:hover {
     }
 }
 
+/* FORM */
 form {
     max-width: 600px;
     margin: 0 auto;
@@ -300,7 +279,8 @@ form label {
     margin-top: 1rem;
 }
 
-form input, form textarea {
+form input, 
+form textarea {
     padding: 0.5rem;
     margin-top: 0.5rem;
     border: 1px solid #003366;
@@ -317,40 +297,33 @@ form button {
     cursor: pointer;
 }
 
-/* Footer centrado */
+/* FOOTER */
 footer {
-    background-color: #003366; /* Mantiene el azul */
+    background-color: #003366;
     color: #FFFFFF;
     text-align: center;
     padding: 1.5rem;
 }
 
-/* Instagram centrado debajo del texto */
 footer a {
     display: inline-block;
     margin-top: 10px;
-    color: #E1306C; /* Color Instagram */
+    color: #E1306C;
     text-decoration: none;
     font-weight: bold;
-    font-size: 16px;
 }
 
-/* Ícono Instagram */
 footer a i {
     color: #E1306C;
     margin-right: 6px;
-    font-size: 20px;
 }
 
-/* Efecto al pasar el mouse */
-footer a:hover {
-    color: #C13584;
-}
-
+footer a:hover,
 footer a:hover i {
     color: #C13584;
 }
 
+/* WHATSAPP */
 .whatsapp-float {
     position: fixed;
     bottom: 20px;
@@ -368,11 +341,11 @@ footer a:hover i {
     box-shadow: 0 4px 8px rgba(0,0,0,0.3);
 }
 
-/* TITULOS DEPORTIVOS MÁS PEQUEÑOS Y BIEN CENTRADOS */
+/* TITULOS */
 section h2 {
     position: relative;
     display: inline-block;
-    font-size: 1.7rem;   /* MÁS PROPORCIONADO */
+    font-size: 1.7rem;
     font-weight: 800;
     letter-spacing: 2px;
     padding: 6px 16px;
@@ -381,10 +354,9 @@ section h2 {
     background: #ffffff;
     border-radius: 8px;
     text-transform: uppercase;
-    animation: tituloEntrada 0.8s ease-out;
 }
 
-/* franjas deportivas */
+/* FRANJAS */
 section h2::before,
 section h2::after {
     content: "";
@@ -397,53 +369,60 @@ section h2::after {
     border-radius: 2px;
 }
 
-/* izquierda */
-section h2::before {
-    left: -32px;
-}
+section h2::before { left: -32px; }
+section h2::after { right: -32px; }
 
-/* derecha */
-section h2::after {
-    right: -32px;
-}
-
-/* animación deportiva */
-@keyframes entradaDeportiva {
-    from {
-        transform: scale(0.8);
-        opacity: 0;
-    }
-    to {
-        transform: scale(1);
-        opacity: 1;
-    }
-}
-@keyframes tituloEntrada {
-    from {
-        opacity: 0;
-        transform: translateY(-15px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-
-/* Responsive */
+/* RESPONSIVE */
 @media (max-width: 768px) {
-    header {
-        flex-direction: column;
-        text-align: center;
-    }
-    nav ul {
-        flex-direction: column;
-        margin-top: 1rem;
-    }
-    nav ul li {
-        margin: 0.5rem 0;
-    }
-    .entrenadores-grid, .planes-grid, .galeria-grid {
-        grid-template-columns: 1fr;
-    }
+
+  header {
+      flex-direction: column;
+      text-align: center;
+  }
+
+  nav ul {
+      flex-direction: column;
+      margin-top: 1rem;
+  }
+
+  nav ul li {
+      margin: 0.5rem 0;
+  }
+
+  .entrenadores-grid, 
+  .planes-grid, 
+  .galeria-grid {
+      grid-template-columns: 1fr;
+  }
+
+  .banner img {
+      height: 220px;
+  }
+
+  .overlay {
+      top: 50%;
+      max-width: 90%;
+      font-size: 0.75rem;
+  }
+
+  .overlay h2 {
+      font-size: 1rem;
+  }
+
+  .overlay p {
+      font-size: 0.7rem;
+  }
+
+  section h2 {
+      font-size: 1.2rem;
+  }
+
+  section h2::before,
+  section h2::after {
+      display: none;
+  }
+
+  body {
+      font-size: 14px;
+  }
 }
