@@ -81,25 +81,26 @@ section {
 /* OVERLAY - texto arriba del banner */
 .overlay {
     position: absolute;
-    top: 20px;               /* parte superior del banner */
+    top: 20px;                 /* parte superior */
     left: 50%;
     transform: translateX(-50%);
     background: rgba(174,214,241,0.8);  /* semitransparente */
     padding: 0.6rem 1rem;
     border-radius: 8px;
     max-width: 60%;
+    width: auto;
     text-align: center;
 }
 
 .overlay h2 {
-    font-size: 1.5rem;       
+    font-size: 1.5rem;
     font-weight: 900;
     color: #1B4F72;
     margin-bottom: 5px;
 }
 
 .overlay p {
-    font-size: 0.9rem;       
+    font-size: 0.9rem;
     color: #0B3C5D;
 }
 
@@ -308,20 +309,23 @@ section h2 {
         height: 220px;
     }
 
+    /* OVERLAY MÓVIL - compacto */
     .overlay {
-        top: 10px;               /* parte superior en móvil */
+        top: 10px;                /* arriba */
         left: 50%;
         transform: translateX(-50%);
-        max-width: 90%;
-        padding: 0.5rem 0.8rem;
+        max-width: 80%;            /* más reducido */
+        width: auto;
+        padding: 5px 10px;
+        background: rgba(174,214,241,0.7);
     }
 
     .overlay h2 {
-        font-size: 1.2rem;
+        font-size: 1rem;
     }
 
     .overlay p {
-        font-size: 0.75rem;
+        font-size: 0.7rem;
     }
 
     section h2 {
