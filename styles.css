@@ -24,7 +24,9 @@ body {
     background-attachment: fixed;
 }
 
-html, body { overflow-x: hidden; }
+html, body {
+    overflow-x: hidden;
+}
 
 /* HEADER */
 header {
@@ -37,7 +39,10 @@ header {
     flex-wrap: wrap;
 }
 
-.logo { display: flex; align-items: center; }
+.logo {
+    display: flex;
+    align-items: center;
+}
 
 .logo img {
     height: 70px;
@@ -50,7 +55,9 @@ nav ul {
     display: flex;
 }
 
-nav ul li { margin-left: 2rem; }
+nav ul li {
+    margin-left: 2rem;
+}
 
 nav ul li a {
     color: white;
@@ -65,7 +72,9 @@ section {
 }
 
 /* BANNER */
-.banner { position: relative; }
+.banner {
+    position: relative;
+}
 
 .banner img {
     width: 100%;
@@ -106,7 +115,7 @@ section {
     margin-top: 1rem;
 }
 
-/* SLIDER */
+/* SLIDER (GALERÍA) */
 .slider {
     position: relative;
     width: 480px;
@@ -132,7 +141,7 @@ section {
     flex-shrink: 0;
 }
 
-/* FLECHAS */
+/* FLECHAS GALERIA */
 .prev, .next {
     position: absolute;
     top: 50%;
@@ -152,7 +161,7 @@ section {
     border-radius: 6px;
 }
 
-/* ICONS */
+/* ICONOS */
 .icono-plan-img {
     width: 180px;
     height: 180px;
@@ -161,9 +170,9 @@ section {
     margin: 0 auto 10px;
 }
 
-/* ==========================
-   TABLA PROFESIONAL
-   ========================== */
+/* =====================
+   TABLA ELEGANTE
+   ===================== */
 
 table {
     width: 100%;
@@ -202,7 +211,7 @@ table tbody tr:nth-child(even) {
 
 table tbody tr:hover {
     background: #d9ebff;
-    transform: scale(1.02);
+    transform: scale(1.01);
     transition: 0.2s ease;
 }
 
@@ -218,36 +227,15 @@ table thead th:last-child {
 @media (max-width: 600px) {
 
     table {
-        border-collapse: separate;
-        border-spacing: 0 15px;
-        background: transparent;
-        box-shadow: none;
+        width: 95%;
+        font-size: 13px;
     }
 
-    table thead { display: none; }
-
-    table tr {
-        display: block;
-        background: white;
-        margin-bottom: 15px;
-        border-radius: 12px;
-        box-shadow: 0 6px 15px rgba(0,0,0,0.15);
-    }
-
+    table th,
     table td {
-        display: flex;
-        justify-content: space-between;
-        padding: 10px 14px;
-        border: none;
-        text-align: right;
+        padding: 10px;
     }
 
-    table td::before {
-        content: attr(data-label);
-        font-weight: bold;
-        color: #00509D;
-        text-align: left;
-    }
 }
 
 /* FOOTER */
@@ -273,7 +261,7 @@ footer {
     justify-content: center;
 }
 
-/* TITLES */
+/* TITULOS */
 section h2 {
     display: inline-block;
     background: white;
@@ -284,8 +272,9 @@ section h2 {
     font-weight: 800;
 }
 
-/* MÓVIL */
+/* RESPONSIVE GENERAL */
 @media (max-width: 768px) {
+
     header {
         flex-direction: column;
         text-align: center;
