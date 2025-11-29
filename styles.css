@@ -24,7 +24,9 @@ body {
     background-attachment: fixed;
 }
 
-html, body { overflow-x: hidden; }
+html, body {
+    overflow-x: hidden;
+}
 
 /* HEADER */
 header {
@@ -70,7 +72,9 @@ section {
 }
 
 /* BANNER */
-.banner { position: relative; }
+.banner {
+    position: relative;
+}
 
 .banner img {
     width: 100%;
@@ -97,7 +101,7 @@ section {
 }
 
 .overlay p {
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     color: #0B3C5D;
 }
 
@@ -112,18 +116,18 @@ section {
 }
 
 /* ====================================
-   🎯 SLIDER FUNCIONAL PROFESIONAL
+   🎯 GALERÍA CENTRADA Y RESPONSIVE
    ==================================== */
 
 .slider {
-    position: relative;
-    width: 480px;
-    max-width: 100%;
+    display: block;
+    margin: 40px auto;
+    width: 420px;
+    max-width: 90%;
     aspect-ratio: 1 / 1;
-    margin: 0 auto;
     overflow: hidden;
-    border-radius: 14px;
-    box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+    border-radius: 16px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.25);
 }
 
 .slides {
@@ -145,7 +149,7 @@ section {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    padding: 10px;
+    padding: 12px;
     border: none;
     background: rgba(0,0,0,0.6);
     color: white;
@@ -154,35 +158,37 @@ section {
 }
 
 /* CARDS */
-.entrenador, .plan {
-    background: #f0f0f0;
+.entrenador,
+.plan {
+    background: #ffffffd9;
     padding: 1rem;
-    border-radius: 6px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
 /* ICONS */
 .icono-plan-img {
-    width: 180px;
-    height: 180px;
+    width: 160px;
+    height: 160px;
     object-fit: contain;
     display: block;
     margin: 0 auto 10px;
 }
 
 /* ====================================
-   📊 TABLA PROFESIONAL ELEGANTE
+   📊 TABLA PREMIUM Y MODERNA
    ==================================== */
 
 table {
     width: 100%;
     max-width: 900px;
-    margin: 40px auto;
+    margin: 50px auto;
     border-collapse: separate;
     border-spacing: 0;
     background: white;
-    border-radius: 14px;
+    border-radius: 16px;
     overflow: hidden;
-    box-shadow: 0 8px 18px rgba(0,0,0,0.18);
+    box-shadow: 0 10px 22px rgba(0,0,0,0.18);
     font-size: 15px;
 }
 
@@ -194,32 +200,112 @@ table thead {
 table th {
     padding: 15px;
     text-transform: uppercase;
+    font-weight: bold;
     letter-spacing: 1px;
-    font-weight: 800;
 }
 
 table td {
-    padding: 13px;
+    padding: 14px;
+    border-bottom: 1px solid #e6edf7;
     color: #003366;
-    border-bottom: 1px solid #e6eef7;
 }
 
+/* FILAS ALTERNAS */
 table tbody tr:nth-child(even) {
-    background-color: #f3f8ff;
+    background-color: #f4f8ff;
 }
 
+/* HOVER */
 table tbody tr:hover {
-    background: #d9ebff;
-    transform: scale(1.01);
-    transition: all 0.2s ease;
+    background: #e2f0ff;
+    transform: scale(1.02);
+    transition: 0.2s ease;
 }
 
-table thead tr th:first-child {
-    border-top-left-radius: 14px;
+/* ESQUINAS */
+table thead th:first-child {
+    border-top-left-radius: 16px;
 }
 
-table thead tr th:last-child {
-    border-top-right-radius: 14px;
+table thead th:last-child {
+    border-top-right-radius: 16px;
+}
+
+/* ====================================
+   📱 RESPONSIVE TOTAL
+   ==================================== */
+
+@media (max-width: 768px) {
+
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav ul {
+        flex-direction: column;
+        margin-top: 10px;
+    }
+
+    nav ul li {
+        margin: 6px 0;
+    }
+
+    .banner img {
+        height: 220px;
+    }
+
+    .overlay {
+        top: 45%;
+        max-width: 90%;
+    }
+
+    section h2 {
+        font-size: 1.2rem;
+    }
+
+    .slider {
+        width: 90%;
+    }
+}
+
+/* ======================================
+   📱 TABLA TIPO TARJETA EN CELULAR
+   ====================================== */
+
+@media (max-width: 600px) {
+
+    table {
+        border-collapse: separate;
+        border-spacing: 0 12px;
+        background: transparent;
+        box-shadow: none;
+    }
+
+    table thead {
+        display: none;
+    }
+
+    table tr {
+        display: block;
+        background: white;
+        margin-bottom: 12px;
+        border-radius: 12px;
+        box-shadow: 0 6px 14px rgba(0,0,0,0.12);
+    }
+
+    table td {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 14px;
+        border: none;
+    }
+
+    table td::before {
+        content: attr(data-label);
+        font-weight: bold;
+        color: #00509d;
+    }
 }
 
 /* FORM */
@@ -258,62 +344,8 @@ section h2 {
     display: inline-block;
     background: white;
     color: #003366;
-    padding: 6px 18px;
-    border-radius: 8px;
+    padding: 8px 20px;
+    border-radius: 10px;
     margin-bottom: 25px;
     font-weight: 800;
-}
-
-/* =============================
-   📱 MÓVIL
-   ============================= */
-
-@media (max-width: 768px) {
-
-    header {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    nav ul {
-        flex-direction: column;
-    }
-
-    nav ul li {
-        margin: 8px 0;
-    }
-
-    .banner img {
-        height: 220px;
-    }
-
-    .overlay {
-        top: 45%;
-        max-width: 90%;
-    }
-
-    section h2 {
-        font-size: 1.2rem;
-    }
-
-    .slider {
-        width: 90%;
-        max-width: 360px;
-    }
-
-}
-
-/* 📱 TABLA CELULAR */
-@media (max-width: 600px) {
-
-    table {
-        font-size: 13px;
-        width: 95%;
-    }
-
-    table th,
-    table td {
-        padding: 9px;
-    }
-
 }
