@@ -24,9 +24,7 @@ body {
     background-attachment: fixed;
 }
 
-html, body {
-    overflow-x: hidden;
-}
+html, body { overflow-x: hidden; }
 
 /* HEADER */
 header {
@@ -39,10 +37,7 @@ header {
     flex-wrap: wrap;
 }
 
-.logo {
-    display: flex;
-    align-items: center;
-}
+.logo { display: flex; align-items: center; }
 
 .logo img {
     height: 70px;
@@ -55,9 +50,7 @@ nav ul {
     display: flex;
 }
 
-nav ul li {
-    margin-left: 2rem;
-}
+nav ul li { margin-left: 2rem; }
 
 nav ul li a {
     color: white;
@@ -72,9 +65,7 @@ section {
 }
 
 /* BANNER */
-.banner {
-    position: relative;
-}
+.banner { position: relative; }
 
 .banner img {
     width: 100%;
@@ -101,7 +92,7 @@ section {
 }
 
 .overlay p {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     color: #0B3C5D;
 }
 
@@ -115,19 +106,16 @@ section {
     margin-top: 1rem;
 }
 
-/* ====================================
-   🎯 GALERÍA CENTRADA Y RESPONSIVE
-   ==================================== */
-
+/* SLIDER */
 .slider {
-    display: block;
-    margin: 40px auto;
-    width: 420px;
-    max-width: 90%;
+    position: relative;
+    width: 480px;
+    max-width: 100%;
     aspect-ratio: 1 / 1;
+    margin: 0 auto;
     overflow: hidden;
-    border-radius: 16px;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+    border-radius: 14px;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.3);
 }
 
 .slides {
@@ -149,7 +137,7 @@ section {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    padding: 12px;
+    padding: 10px;
     border: none;
     background: rgba(0,0,0,0.6);
     color: white;
@@ -158,71 +146,66 @@ section {
 }
 
 /* CARDS */
-.entrenador,
-.plan {
-    background: #ffffffd9;
+.entrenador, .plan {
+    background: #f0f0f0;
     padding: 1rem;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    border-radius: 6px;
 }
 
 /* ICONS */
 .icono-plan-img {
-    width: 160px;
-    height: 160px;
+    width: 180px;
+    height: 180px;
     object-fit: contain;
     display: block;
     margin: 0 auto 10px;
 }
 
-/* ====================================
-   📊 TABLA PREMIUM Y MODERNA
-   ==================================== */
+/* ==========================
+   TABLA PROFESIONAL
+   ========================== */
 
 table {
     width: 100%;
-    max-width: 900px;
-    margin: 50px auto;
+    max-width: 850px;
+    margin: 40px auto;
     border-collapse: separate;
     border-spacing: 0;
     background: white;
     border-radius: 16px;
     overflow: hidden;
-    box-shadow: 0 10px 22px rgba(0,0,0,0.18);
+    box-shadow: 0 10px 24px rgba(0,0,0,0.18);
     font-size: 15px;
 }
 
 table thead {
-    background: linear-gradient(135deg, #003366, #00509d);
+    background: linear-gradient(135deg, #003366, #00509D);
     color: white;
 }
 
 table th {
-    padding: 15px;
-    text-transform: uppercase;
+    padding: 14px;
     font-weight: bold;
+    text-transform: uppercase;
     letter-spacing: 1px;
 }
 
 table td {
-    padding: 14px;
-    border-bottom: 1px solid #e6edf7;
+    padding: 13px;
     color: #003366;
+    border-bottom: 1px solid #e6edf7;
 }
 
-/* FILAS ALTERNAS */
 table tbody tr:nth-child(even) {
-    background-color: #f4f8ff;
+    background-color: #f3f8ff;
 }
 
-/* HOVER */
 table tbody tr:hover {
-    background: #e2f0ff;
+    background: #d9ebff;
     transform: scale(1.02);
     transition: 0.2s ease;
 }
 
-/* ESQUINAS */
 table thead th:first-child {
     border-top-left-radius: 16px;
 }
@@ -231,67 +214,24 @@ table thead th:last-child {
     border-top-right-radius: 16px;
 }
 
-/* ====================================
-   📱 RESPONSIVE TOTAL
-   ==================================== */
-
-@media (max-width: 768px) {
-
-    header {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    nav ul {
-        flex-direction: column;
-        margin-top: 10px;
-    }
-
-    nav ul li {
-        margin: 6px 0;
-    }
-
-    .banner img {
-        height: 220px;
-    }
-
-    .overlay {
-        top: 45%;
-        max-width: 90%;
-    }
-
-    section h2 {
-        font-size: 1.2rem;
-    }
-
-    .slider {
-        width: 90%;
-    }
-}
-
-/* ======================================
-   📱 TABLA TIPO TARJETA EN CELULAR
-   ====================================== */
-
+/* TABLA RESPONSIVE */
 @media (max-width: 600px) {
 
     table {
         border-collapse: separate;
-        border-spacing: 0 12px;
+        border-spacing: 0 15px;
         background: transparent;
         box-shadow: none;
     }
 
-    table thead {
-        display: none;
-    }
+    table thead { display: none; }
 
     table tr {
         display: block;
         background: white;
-        margin-bottom: 12px;
+        margin-bottom: 15px;
         border-radius: 12px;
-        box-shadow: 0 6px 14px rgba(0,0,0,0.12);
+        box-shadow: 0 6px 15px rgba(0,0,0,0.15);
     }
 
     table td {
@@ -299,21 +239,15 @@ table thead th:last-child {
         justify-content: space-between;
         padding: 10px 14px;
         border: none;
+        text-align: right;
     }
 
     table td::before {
         content: attr(data-label);
         font-weight: bold;
-        color: #00509d;
+        color: #00509D;
+        text-align: left;
     }
-}
-
-/* FORM */
-form {
-    max-width: 600px;
-    margin: auto;
-    display: flex;
-    flex-direction: column;
 }
 
 /* FOOTER */
@@ -344,8 +278,42 @@ section h2 {
     display: inline-block;
     background: white;
     color: #003366;
-    padding: 8px 20px;
-    border-radius: 10px;
+    padding: 6px 18px;
+    border-radius: 8px;
     margin-bottom: 25px;
     font-weight: 800;
+}
+
+/* MÓVIL */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav ul {
+        flex-direction: column;
+    }
+
+    nav ul li {
+        margin: 8px 0;
+    }
+
+    .banner img {
+        height: 220px;
+    }
+
+    .overlay {
+        top: 45%;
+        max-width: 90%;
+    }
+
+    section h2 {
+        font-size: 1.2rem;
+    }
+
+    .slider {
+        width: 90%;
+        max-width: 360px;
+    }
 }
