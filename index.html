@@ -15,31 +15,22 @@
 
 <body>
     <header>
-    <div class="logo">
-        <img src="images/logo2.jpeg" alt="Logo Club Warrior Team">
-        <h1>Club Warrior Team</h1>
-    </div>
-
-    <!-- BOTÓN HAMBURGUESA -->
-    <div class="menu-toggle" id="menu-toggle">
-        <span></span>
-        <span></span>
-        <span></span>
-    </div>
-
-    <!-- MENÚ -->
-    <nav id="nav-menu">
-        <ul>
-            <li><a href="#inicio">Inicio</a></li>
-            <li><a href="#historia">Historia</a></li>
-            <li><a href="#entrenadores">Entrenadores</a></li>
-            <li><a href="#horarios">Horarios</a></li>
-            <li><a href="#planes">Planes</a></li>
-            <li><a href="#galeria">Galería</a></li>
-            <li><a href="#contacto">Contacto</a></li>
-        </ul>
-    </nav>
-</header>
+        <div class="logo">
+            <img src="images/logo2.jpeg" alt="Logo Club Warrior Team">
+            <h1>Club Warrior Team</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#historia">Historia</a></li>
+                <li><a href="#entrenadores">Entrenadores</a></li>
+                <li><a href="#horarios">Horarios</a></li>
+                <li><a href="#planes">Planes</a></li>
+                <li><a href="#galeria">Galería</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
 
     <section id="inicio">
         <div class="banner">
@@ -167,7 +158,7 @@
         <div class="slider" draggable="false">
     <button class="prev" onclick="mover(-1)">❮</button>
 
-    <div class="slides">
+    <div class="slides" onmousedown="return false" onselectstart="return false">
         <img src="images/ima1.jpeg"draggable="false" loading="lazy">
         <img src="images/ima2.jpeg"draggable="false" loading="lazy">
         <img src="images/ima3.jpeg"draggable="false" loading="lazy">
