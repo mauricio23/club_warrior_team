@@ -24,7 +24,9 @@ body {
     background-attachment: fixed;
 }
 
-html, body { overflow-x: hidden; }
+html, body { 
+    overflow-x: hidden; 
+}
 
 /* HEADER */
 header {
@@ -51,16 +53,18 @@ header {
 nav ul {
     list-style: none;
     display: flex;
-}
-
-nav ul li {
-    margin-left: 2rem;
+    gap: 25px;
 }
 
 nav ul li a {
     color: white;
     text-decoration: none;
     font-weight: bold;
+    transition: opacity 0.3s ease;
+}
+
+nav ul li a:hover {
+    opacity: 0.7;
 }
 
 /* SECTIONS */
@@ -70,7 +74,9 @@ section {
 }
 
 /* BANNER */
-.banner { position: relative; }
+.banner { 
+    position: relative; 
+}
 
 .banner img {
     width: 100%;
@@ -78,36 +84,36 @@ section {
     object-fit: cover;
 }
 
-/* OVERLAY - texto arriba del banner */
+/* OVERLAY */
 .overlay {
     position: absolute;
-    top: 20px;                 /* parte superior */
+    top: 20px;
     left: 50%;
     transform: translateX(-50%);
-    background: rgba(174,214,241,0.8);  /* semitransparente */
-    padding: 0.6rem 1rem;
-    border-radius: 8px;
-    max-width: 60%;
-    width: auto;
+    background: rgba(255, 255, 255, 0.85);
+    padding: 10px 16px;
+    border-radius: 14px;
+    max-width: 65%;
     text-align: center;
+    backdrop-filter: blur(4px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
 
 .overlay h2 {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     font-weight: 900;
-    color: #1B4F72;
+    color: #003366;
     margin-bottom: 5px;
 }
 
 .overlay p {
     font-size: 0.9rem;
-    color: #0B3C5D;
+    color: #1B4F72;
 }
 
 /* GRIDS */
 .entrenadores-grid,
-.planes-grid,
-.galeria-grid {
+.planes-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 1rem;
@@ -157,6 +163,13 @@ section {
     background: #f5f9ff;
     padding: 1rem;
     border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.entrenador:hover,
+.plan:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 22px rgba(0,0,0,0.2);
 }
 
 /* ICONOS */
@@ -187,14 +200,12 @@ table thead {
     color: white;
 }
 
-table th {
-    padding: 14px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+table th,
+table td {
+    padding: 13px;
 }
 
 table td {
-    padding: 13px;
     color: #003366;
     border-bottom: 1px solid #e6eef7;
 }
@@ -258,7 +269,6 @@ section h2 {
     header {
         flex-direction: column;
         text-align: center;
-        padding: 20px;
     }
 
     .logo {
@@ -269,59 +279,27 @@ section h2 {
         margin: 0 0 10px 0;
     }
 
-    nav {
-        width: 100%;
-        margin-top: 15px;
-    }
-
     nav ul {
         flex-direction: column;
-        width: 100%;
-        background: white;
-        border-radius: 12px;
-        box-shadow: 0 8px 18px rgba(0,0,0,0.15);
-        padding: 10px 0;
-    }
-
-    nav ul li {
-        margin: 0;
-        border-bottom: 1px solid #eee;
-    }
-
-    nav ul li:last-child {
-        border-bottom: none;
     }
 
     nav ul li a {
-        display: block;
-        padding: 12px;
-        color: #003366;
-        font-size: 1rem;
-    }
-
-    nav ul li a:hover {
-        background: #e8f4ff;
-        color: #00509d;
-        font-weight: bold;
+        padding: 8px;
+        font-size: 0.95rem;
     }
 
     .banner img {
         height: 220px;
     }
 
-    /* OVERLAY MÓVIL - compacto */
     .overlay {
-        top: 10px;                /* arriba */
-        left: 50%;
-        transform: translateX(-50%);
-        max-width: 80%;            /* más reducido */
-        width: auto;
-        padding: 5px 10px;
-        background: rgba(174,214,241,0.7);
+        top: 8px;
+        max-width: 85%;
+        padding: 6px 12px;
     }
 
     .overlay h2 {
-        font-size: 1rem;
+        font-size: 0.95rem;
     }
 
     .overlay p {
@@ -338,7 +316,30 @@ section h2 {
     }
 }
 
-/* 📱 TABLA CELULAR */
+/* =========================
+ 📱 MÓVILES MUY PEQUEÑOS
+ ========================= */
+@media (max-width: 480px) {
+
+    body {
+        font-size: 14px;
+    }
+
+    section {
+        padding: 1.2rem;
+        text-align: justify;
+    }
+
+    .plan ul li {
+        font-size: 13px;
+    }
+
+    .entrenador p {
+        font-size: 14px;
+    }
+}
+
+/* 📱 TABLA COMPACTA */
 @media (max-width: 600px) {
 
     table {
