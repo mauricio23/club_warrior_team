@@ -417,3 +417,30 @@ section h2 {
         padding: 10px;
     }
 }
+/* =========================
+   ICONO INSTAGRAM ANIMADO
+========================= */
+.instagram-link i.fab.fa-instagram {
+    font-size: 1.5rem;
+    background: linear-gradient(45deg, #feda75, #fa7e1e, #d62976, #962fbf, #4f5bd5);
+    background-size: 400% 400%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: instagram-gradient 3s ease infinite;
+}
+
+.instagram-link {
+    font-weight: bold;
+    text-decoration: none;
+    background: linear-gradient(45deg, #feda75, #fa7e1e, #d62976, #962fbf, #4f5bd5);
+    background-size: 400% 400%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: instagram-gradient 3s ease infinite;
+}
+
+@keyframes instagram-gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
