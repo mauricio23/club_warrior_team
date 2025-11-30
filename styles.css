@@ -24,7 +24,9 @@ body {
     background-attachment: fixed;
 }
 
-html, body { overflow-x: hidden; }
+html, body { 
+    overflow-x: hidden; 
+}
 
 /* HEADER */
 header {
@@ -62,7 +64,7 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    opacity: 0.6;
+    opacity: 0.7;
 }
 
 /* SECTIONS */
@@ -72,7 +74,9 @@ section {
 }
 
 /* BANNER */
-.banner { position: relative; }
+.banner { 
+    position: relative; 
+}
 
 .banner img {
     width: 100%;
@@ -86,9 +90,9 @@ section {
     top: 20px;
     left: 50%;
     transform: translateX(-50%);
-    background: rgba(255,255,255,0.85);
-    padding: 12px 18px;
-    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.85);
+    padding: 10px 16px;
+    border-radius: 14px;
     max-width: 65%;
     text-align: center;
     backdrop-filter: blur(4px);
@@ -99,7 +103,7 @@ section {
     font-size: 1.4rem;
     font-weight: 900;
     color: #003366;
-    margin-bottom: 6px;
+    margin-bottom: 5px;
 }
 
 .overlay p {
@@ -111,8 +115,9 @@ section {
 .entrenadores-grid,
 .planes-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 1rem;
+    margin-top: 1rem;
 }
 
 /* SLIDER */
@@ -121,38 +126,36 @@ section {
     width: 460px;
     max-width: 95%;
     aspect-ratio: 1/1;
-    margin: auto;
+    margin: 0 auto;
     overflow: hidden;
     border-radius: 16px;
     box-shadow: 0 8px 18px rgba(0,0,0,0.3);
-    background: #000;
 }
 
 .slides {
     display: flex;
     height: 100%;
-    transition: transform .4s ease-in-out;
+    transition: transform 0.4s ease-in-out;
 }
 
 .slides img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    user-select: none;
-    pointer-events: none;
+    flex-shrink: 0;
 }
+
 /* FLECHAS */
 .prev, .next {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(0,0,0,.6);
-    color: #fff;
-    border-radius: 50%;
+    background: rgba(0,0,0,0.65);
+    color: white;
     border: none;
+    border-radius: 50%;
     padding: 10px;
     cursor: pointer;
-    z-index: 5;
 }
 
 /* CARDS */
@@ -160,20 +163,22 @@ section {
     background: #f5f9ff;
     padding: 1rem;
     border-radius: 8px;
-    transition: .3s;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .entrenador:hover,
 .plan:hover {
     transform: translateY(-8px);
-    box-shadow: 0 12px 22px rgba(0,0,0,.2);
+    box-shadow: 0 12px 22px rgba(0,0,0,0.2);
 }
 
 /* ICONOS */
 .icono-plan-img {
     width: 170px;
+    height: 170px;
+    object-fit: contain;
     display: block;
-    margin: auto;
+    margin: 0 auto 10px;
 }
 
 /* TABLA */
@@ -181,9 +186,13 @@ table {
     width: 100%;
     max-width: 850px;
     margin: 40px auto;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: white;
     border-radius: 16px;
     overflow: hidden;
-    box-shadow: 0 10px 24px rgba(0,0,0,.18);
+    box-shadow: 0 10px 24px rgba(0,0,0,0.18);
+    font-size: 15px;
 }
 
 table thead {
@@ -191,12 +200,23 @@ table thead {
     color: white;
 }
 
-table th, table td {
+table th,
+table td {
     padding: 13px;
 }
 
 table td {
+    color: #003366;
     border-bottom: 1px solid #e6eef7;
+}
+
+table tbody tr:nth-child(even) {
+    background-color: #f4f9ff;
+}
+
+table tbody tr:hover {
+    background: #d9ecff;
+    transform: scale(1.02);
 }
 
 /* FORM */
@@ -222,47 +242,129 @@ footer {
     bottom: 20px;
     width: 60px;
     height: 60px;
+    background: #25D366;
+    color: white;
     border-radius: 50%;
-    background:#25D366;
-    display:flex;
-    align-items:center;
-    justify-content:center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* TITLES */
 section h2 {
-    background:white;
-    padding:6px 18px;
-    border-radius:8px;
-    display:inline-block;
-    margin-bottom:25px;
+    display: inline-block;
+    background: white;
+    color: #003366;
+    padding: 6px 18px;
+    border-radius: 8px;
+    margin-bottom: 25px;
+    font-weight: 800;
 }
 
-/* ✅ ELIMINA BOTÓN PLAY */
+/* =========================
+ ✅ ELIMINAR BOTÓN PLAY FANTASMA
+ ========================= */
 .slider::before,
 .slider::after,
 .slides::before,
 .slides::after {
-    display:none!important;
-    content:none!important;
+    content: none !important;
+    display: none !important;
 }
 
-video,
-audio {
-    display:none!important;
+.slider, 
+.slides, 
+.slides img {
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+    -webkit-tap-highlight-color: transparent;
 }
 
-/* RESPONSIVE */
-@media (max-width:768px) {
-    header { flex-direction: column; }
-    nav ul { flex-direction: column; }
-    .banner img { height:220px; }
-    .overlay { max-width:85%; padding:6px 12px; top:8px; }
-    .overlay h2{font-size:1rem;}
-    .overlay p{font-size:.7rem;}
-    .slider{max-width:350px;}
+/* =========================
+ 📱 RESPONSIVE
+ ========================= */
+@media (max-width: 768px) {
+
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .logo {
+        flex-direction: column;
+    }
+
+    .logo img {
+        margin: 0 0 10px 0;
+    }
+
+    nav ul {
+        flex-direction: column;
+    }
+
+    nav ul li a {
+        padding: 8px;
+        font-size: 0.95rem;
+    }
+
+    .banner img {
+        height: 220px;
+    }
+
+    .overlay {
+        top: 8px;
+        max-width: 85%;
+        padding: 6px 12px;
+    }
+
+    .overlay h2 {
+        font-size: 0.95rem;
+    }
+
+    .overlay p {
+        font-size: 0.7rem;
+    }
+
+    section h2 {
+        font-size: 1.2rem;
+    }
+
+    .slider {
+        max-width: 350px;
+        width: 90%;
+    }
 }
 
-@media (max-width:480px){
-    body{font-size:14px;}
+@media (max-width: 480px) {
+
+    body {
+        font-size: 14px;
+    }
+
+    section {
+        padding: 1.2rem;
+        text-align: justify;
+    }
+
+    .plan ul li {
+        font-size: 13px;
+    }
+
+    .entrenador p {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 600px) {
+
+    table {
+        font-size: 13px;
+        width: 95%;
+    }
+
+    table th, 
+    table td {
+        padding: 10px;
+    }
 }
