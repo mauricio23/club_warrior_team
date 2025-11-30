@@ -1,32 +1,33 @@
-/* RESET */
+/* =========================
+   RESET GENERAL
+========================= */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* BODY */
+html, body { overflow-x: hidden; }
+
 body {
     font-family: Arial, sans-serif;
     color: #003366;
     line-height: 1.6;
-    background: linear-gradient(160deg, #f0f8ff, #aed6f1);
-    background-image:
-        linear-gradient(160deg, #f0f8ff, #aed6f1),
-        repeating-linear-gradient(
-            45deg,
-            rgba(0, 51, 102, 0.03) 0px,
-            rgba(0, 51, 102, 0.03) 20px,
-            transparent 20px,
-            transparent 40px
-        );
+    background: linear-gradient(160deg, #f0f8ff, #aed6f1),
+                repeating-linear-gradient(
+                    45deg,
+                    rgba(0, 51, 102, 0.03) 0px,
+                    rgba(0, 51, 102, 0.03) 20px,
+                    transparent 20px,
+                    transparent 40px
+                );
     background-blend-mode: overlay;
     background-attachment: fixed;
 }
 
-html, body { overflow-x: hidden; }
-
-/* HEADER */
+/* =========================
+   HEADER
+========================= */
 header {
     display: flex;
     justify-content: space-between;
@@ -35,6 +36,7 @@ header {
     background-color: #003366;
     color: white;
     flex-wrap: wrap;
+    position: relative;
 }
 
 .logo {
@@ -47,7 +49,15 @@ header {
     margin-right: 1rem;
 }
 
-/* NAV */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.8rem;
+    cursor: pointer;
+}
+
 nav ul {
     list-style: none;
     display: flex;
@@ -63,14 +73,20 @@ nav ul li a {
     font-weight: bold;
 }
 
-/* SECTIONS */
+/* =========================
+   SECTIONS
+========================= */
 section {
     padding: 2rem;
     text-align: center;
 }
 
-/* BANNER */
-.banner { position: relative; }
+/* =========================
+   BANNER
+========================= */
+.banner {
+    position: relative;
+}
 
 .banner img {
     width: 100%;
@@ -78,18 +94,17 @@ section {
     object-fit: cover;
 }
 
-/* OVERLAY - texto arriba del banner */
 .overlay {
     position: absolute;
-    top: 20px;                 /* parte superior */
+    top: 15px;
     left: 50%;
     transform: translateX(-50%);
-    background: rgba(174,214,241,0.8);  /* semitransparente */
-    padding: 0.6rem 1rem;
-    border-radius: 8px;
-    max-width: 60%;
-    width: auto;
+    background: rgba(255,255,255,0.85);
+    padding: 8px 14px;
+    border-radius: 10px;
+    max-width: 70%;
     text-align: center;
+    backdrop-filter: blur(4px);
 }
 
 .overlay h2 {
@@ -104,7 +119,9 @@ section {
     color: #0B3C5D;
 }
 
-/* GRIDS */
+/* =========================
+   GRIDS
+========================= */
 .entrenadores-grid,
 .planes-grid,
 .galeria-grid {
@@ -114,7 +131,9 @@ section {
     margin-top: 1rem;
 }
 
-/* SLIDER */
+/* =========================
+   SLIDER
+========================= */
 .slider {
     position: relative;
     width: 460px;
@@ -140,7 +159,20 @@ section {
 }
 
 /* FLECHAS */
-.prev, .next {
+.prev { 
+    left: 8px; 
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.65);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    padding: 10px;
+    cursor: pointer;
+}
+.next { 
+    right: 8px; 
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -152,11 +184,23 @@ section {
     cursor: pointer;
 }
 
-/* CARDS */
+.prev:hover, .next:hover {
+    background: #003366;
+}
+
+/* =========================
+   CARDS
+========================= */
 .entrenador, .plan {
     background: #f5f9ff;
     padding: 1rem;
     border-radius: 8px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+    transition: transform 0.3s ease;
+}
+
+.entrenador:hover, .plan:hover {
+    transform: translateY(-6px);
 }
 
 /* ICONOS */
@@ -168,7 +212,9 @@ section {
     margin: 0 auto 10px;
 }
 
-/* TABLA */
+/* =========================
+   TABLA
+========================= */
 table {
     width: 100%;
     max-width: 850px;
@@ -208,7 +254,9 @@ table tbody tr:hover {
     transform: scale(1.02);
 }
 
-/* FORM */
+/* =========================
+   FORMULARIO
+========================= */
 form {
     max-width: 600px;
     margin: auto;
@@ -216,7 +264,9 @@ form {
     flex-direction: column;
 }
 
-/* FOOTER */
+/* =========================
+   FOOTER
+========================= */
 footer {
     background: #003366;
     color: white;
@@ -224,7 +274,9 @@ footer {
     text-align: center;
 }
 
-/* WHATSAPP */
+/* =========================
+   WHATSAPP
+========================= */
 .whatsapp-float {
     position: fixed;
     right: 20px;
@@ -237,13 +289,23 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 999;
+    animation: pulso 1.8s infinite;
 }
 
-/* TITLES */
+@keyframes pulso {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.08); }
+    100% { transform: scale(1); }
+}
+
+/* =========================
+   TITULOS
+========================= */
 section h2 {
+    background: linear-gradient(135deg, #003366, #00509d);
+    color: white;
     display: inline-block;
-    background: white;
-    color: #003366;
     padding: 6px 18px;
     border-radius: 8px;
     margin-bottom: 25px;
@@ -251,8 +313,8 @@ section h2 {
 }
 
 /* =========================
- 📱 RESPONSIVE MÓVIL
- ========================= */
+   RESPONSIVE
+========================= */
 @media (max-width: 768px) {
 
     header {
@@ -281,6 +343,11 @@ section h2 {
         border-radius: 12px;
         box-shadow: 0 8px 18px rgba(0,0,0,0.15);
         padding: 10px 0;
+        display: none;
+    }
+
+    nav ul.active {
+        display: flex;
     }
 
     nav ul li {
@@ -305,19 +372,20 @@ section h2 {
         font-weight: bold;
     }
 
+    .menu-toggle {
+        display: block;
+        position: absolute;
+        right: 20px;
+        top: 25px;
+    }
+
     .banner img {
         height: 220px;
     }
 
-    /* OVERLAY MÓVIL - compacto */
     .overlay {
-        top: 10px;                /* arriba */
-        left: 50%;
-        transform: translateX(-50%);
-        max-width: 80%;            /* más reducido */
-        width: auto;
-        padding: 5px 10px;
-        background: rgba(174,214,241,0.7);
+        max-width: 85%;
+        padding: 6px 10px;
     }
 
     .overlay h2 {
@@ -338,9 +406,7 @@ section h2 {
     }
 }
 
-/* 📱 TABLA CELULAR */
 @media (max-width: 600px) {
-
     table {
         font-size: 13px;
         width: 95%;
