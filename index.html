@@ -19,6 +19,11 @@
             <img src="images/logo2.jpeg" alt="Logo Club Warrior Team">
             <h1>Club Warrior Team</h1>
         </div>
+        <button class="menu-toggle" aria-label="Abrir menú">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
         <nav>
             <ul>
                 <li><a href="#inicio">Inicio</a></li>
@@ -205,13 +210,26 @@
     <script src="script.js"></script>
 
     <script>
-    document.addEventListener("gesturestart", function(e){ e.preventDefault(); });
-    
-    let index = 0;
-    const slides = document.querySelector('.slides');
-    const total = slides.children.length;
+document.addEventListener("gesturestart", function(e){ 
+    e.preventDefault(); 
+});
 
-// 👉 Movimiento manual
+// ✅ MENÚ HAMBURGUESA
+const toggle = document.querySelector('.menu-toggle');
+const menu = document.querySelector('nav ul');
+
+if (toggle && menu) {
+    toggle.addEventListener('click', () => {
+        menu.classList.toggle('active');
+    });
+}
+
+// ✅ SLIDER
+let index = 0;
+const slides = document.querySelector('.slides');
+const total = slides.children.length;
+
+// Movimiento manual
 function mover(direccion) {
     index += direccion;
     if (index < 0) index = total - 1;
@@ -219,12 +237,12 @@ function mover(direccion) {
     actualizar();
 }
 
-// 👉 Mostrar imagen
+// Mostrar imagen
 function actualizar() {
     slides.style.transform = `translateX(-${index * 100}%)`;
 }
 
-// 👉 Automático cada 3 segundos
+// Automático cada 3 segundos
 setInterval(() => {
     mover(1);
 }, 3000);
