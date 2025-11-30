@@ -3,6 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- 🔥 BLOQUEA ICONO PLAY AUTOMÁTICO -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+
     <title>Club Warrior Team - Patinaje en Pasto</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -154,21 +159,21 @@
     <button class="prev" onclick="mover(-1)">❮</button>
 
     <div class="slides" onmousedown="return false" onselectstart="return false">
-        <img src="images/ima1.jpeg"draggable="false">
-        <img src="images/ima2.jpeg"draggable="false">
-        <img src="images/ima3.jpeg"draggable="false">
-        <img src="images/ima4.jpeg"draggable="false">
-        <img src="images/ima5.jpeg"draggable="false">
-        <img src="images/ima6.jpeg"draggable="false">
-        <img src="images/ima7.jpeg"draggable="false">
-        <img src="images/ima8.jpeg"draggable="false">
-        <img src="images/ima9.jpeg"draggable="false">
-        <img src="images/ima10.jpeg"draggable="false">
-        <img src="images/ima11.jpeg"draggable="false">
-        <img src="images/ima12.jpeg"draggable="false">
-        <img src="images/ima13.jpeg"draggable="false">
-        <img src="images/ima14.jpeg"draggable="false">
-        <img src="images/ima15.jpeg"draggable="false">
+        <img src="images/ima1.jpeg"draggable="false" loading="lazy">
+        <img src="images/ima2.jpeg"draggable="false" loading="lazy">
+        <img src="images/ima3.jpeg"draggable="false" loading="lazy">
+        <img src="images/ima4.jpeg"draggable="false" loading="lazy">
+        <img src="images/ima5.jpeg"draggable="false" loading="lazy">
+        <img src="images/ima6.jpeg"draggable="false" loading="lazy">
+        <img src="images/ima7.jpeg"draggable="false" loading="lazy">
+        <img src="images/ima8.jpeg"draggable="false" loading="lazy">
+        <img src="images/ima9.jpeg"draggable="false" loading="lazy">
+        <img src="images/ima10.jpeg"draggable="false" loading="lazy">
+        <img src="images/ima11.jpeg"draggable="false" loading="lazy">
+        <img src="images/ima12.jpeg"draggable="false" loading="lazy">
+        <img src="images/ima13.jpeg"draggable="false" loading="lazy">
+        <img src="images/ima14.jpeg"draggable="false" loading="lazy">
+        <img src="images/ima15.jpeg"draggable="false" loading="lazy">
     </div>
 
     <button class="next" onclick="mover(1)">❯</button>
@@ -200,8 +205,6 @@
     <script src="script.js"></script>
 
     <script>
-    document.addEventListener("gesturestart", function(e){ e.preventDefault(); });
-    
     let index = 0;
     const slides = document.querySelector('.slides');
     const total = slides.children.length;
