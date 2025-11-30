@@ -150,25 +150,25 @@
 
     <section id="galeria">
         <h2>Galeria</h2>
-        <div class="slider">
+        <div class="slider" draggable="false">
     <button class="prev" onclick="mover(-1)">❮</button>
 
-    <div class="slides">
-        <img src="images/ima1.jpeg">
-        <img src="images/ima2.jpeg">
-        <img src="images/ima3.jpeg">
-        <img src="images/ima4.jpeg">
-        <img src="images/ima5.jpeg">
-        <img src="images/ima6.jpeg">
-        <img src="images/ima7.jpeg">
-        <img src="images/ima8.jpeg">
-        <img src="images/ima9.jpeg">
-        <img src="images/ima10.jpeg">
-        <img src="images/ima11.jpeg">
-        <img src="images/ima12.jpeg">
-        <img src="images/ima13.jpeg">
-        <img src="images/ima14.jpeg">
-        <img src="images/ima15.jpeg">
+    <div class="slides" onmousedown="return false" onselectstart="return false">
+        <img src="images/ima1.jpeg"draggable="false">
+        <img src="images/ima2.jpeg"draggable="false">
+        <img src="images/ima3.jpeg"draggable="false">
+        <img src="images/ima4.jpeg"draggable="false">
+        <img src="images/ima5.jpeg"draggable="false">
+        <img src="images/ima6.jpeg"draggable="false">
+        <img src="images/ima7.jpeg"draggable="false">
+        <img src="images/ima8.jpeg"draggable="false">
+        <img src="images/ima9.jpeg"draggable="false">
+        <img src="images/ima10.jpeg"draggable="false">
+        <img src="images/ima11.jpeg"draggable="false">
+        <img src="images/ima12.jpeg"draggable="false">
+        <img src="images/ima13.jpeg"draggable="false">
+        <img src="images/ima14.jpeg"draggable="false">
+        <img src="images/ima15.jpeg"draggable="false">
     </div>
 
     <button class="next" onclick="mover(1)">❯</button>
@@ -200,9 +200,11 @@
     <script src="script.js"></script>
 
     <script>
-let index = 0;
-const slides = document.querySelector('.slides');
-const total = slides.children.length;
+    document.addEventListener("gesturestart", function(e){ e.preventDefault(); });
+    
+    let index = 0;
+    const slides = document.querySelector('.slides');
+    const total = slides.children.length;
 
 // 👉 Movimiento manual
 function mover(direccion) {
