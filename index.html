@@ -205,6 +205,8 @@
     <script src="script.js"></script>
 
     <script>
+    document.addEventListener("gesturestart", function(e){ e.preventDefault(); });
+    
     let index = 0;
     const slides = document.querySelector('.slides');
     const total = slides.children.length;

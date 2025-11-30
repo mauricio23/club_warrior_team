@@ -130,15 +130,12 @@ section {
     overflow: hidden;
     border-radius: 16px;
     box-shadow: 0 8px 18px rgba(0,0,0,0.3);
-    contain: content;
-    isolation: isolate;
 }
 
 .slides {
     display: flex;
     height: 100%;
     transition: transform 0.4s ease-in-out;
-    pointer-events: none;
 }
 
 .slides img {
@@ -146,10 +143,6 @@ section {
     height: 100%;
     object-fit: cover;
     flex-shrink: 0;
-    pointer-events: none !important;
-    user-drag: none;
-    -webkit-user-drag: none;
-    -webkit-transform: translateZ(0);
 }
 
 /* FLECHAS */
@@ -163,7 +156,6 @@ section {
     border-radius: 50%;
     padding: 10px;
     cursor: pointer;
-    pointer-events: auto; 
 }
 
 /* CARDS */
@@ -269,22 +261,24 @@ section h2 {
     font-weight: 800;
 }
 
-/* ================================
-   ✅ ELIMINAR BOTÓN PLAY DEFINITIVO
-================================ */
-
-img::-webkit-media-controls,
-video::-webkit-media-controls,
-video::-webkit-media-overlay-play-button {
-    display: none !important;
-    opacity: 0 !important;
-}
-
+/* =========================
+ ✅ ELIMINAR BOTÓN PLAY FANTASMA
+ ========================= */
 .slider::before,
 .slider::after,
 .slides::before,
 .slides::after {
     content: none !important;
+    display: none !important;
+}
+
+.slider, 
+.slides, 
+.slides img {
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+    -webkit-tap-highlight-color: transparent;
 }
 
 /* =========================
