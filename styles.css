@@ -262,7 +262,27 @@ section h2 {
 }
 
 /* =========================
- 📱 RESPONSIVE MÓVIL
+ ✅ ELIMINAR BOTÓN PLAY FANTASMA
+ ========================= */
+.slider::before,
+.slider::after,
+.slides::before,
+.slides::after {
+    content: none !important;
+    display: none !important;
+}
+
+.slider, 
+.slides, 
+.slides img {
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* =========================
+ 📱 RESPONSIVE
  ========================= */
 @media (max-width: 768px) {
 
@@ -316,9 +336,6 @@ section h2 {
     }
 }
 
-/* =========================
- 📱 MÓVILES MUY PEQUEÑOS
- ========================= */
 @media (max-width: 480px) {
 
     body {
@@ -339,7 +356,6 @@ section h2 {
     }
 }
 
-/* 📱 TABLA COMPACTA */
 @media (max-width: 600px) {
 
     table {
