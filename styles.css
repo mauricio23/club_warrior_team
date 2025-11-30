@@ -59,7 +59,7 @@ header {
 }
 
 /* =========================
-   NAV DESKTOP
+   NAV
 ========================= */
 nav ul {
     list-style: none;
@@ -82,33 +82,11 @@ nav ul li a:hover {
 }
 
 /* =========================
-   MENU HAMBURGUESA
-========================= */
-.menu-toggle {
-    display: none;
-    flex-direction: column;
-    width: 34px;
-    cursor: pointer;
-    background: none;
-    border: none;
-}
-
-.menu-toggle span {
-    height: 4px;
-    width: 100%;
-    background: white;
-    margin: 5px 0;
-    border-radius: 6px;
-    transition: 0.3s;
-}
-
-/* =========================
    SECTION GENERAL
 ========================= */
 section {
     padding: 2rem;
     text-align: center;
-    animation: fadeIn 0.9s ease both;
 }
 
 /* =========================
@@ -125,7 +103,7 @@ section {
 }
 
 /* =========================
-   OVERLAY
+   OVERLAY DESKTOP
 ========================= */
 .overlay {
     position: absolute;
@@ -155,7 +133,8 @@ section {
    GRID SECTIONS
 ========================= */
 .entrenadores-grid,
-.planes-grid {
+.planes-grid,
+.galeria-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 1.2rem;
@@ -168,9 +147,8 @@ section {
 .entrenador, .plan {
     background: #f5f9ff;
     padding: 1.2rem;
-    border-radius: 14px;
+    border-radius: 12px;
     box-shadow: 0 6px 10px rgba(0,0,0,0.08);
-    transition: 0.3s;
 }
 
 /* =========================
@@ -196,7 +174,6 @@ section {
     overflow: hidden;
     border-radius: 16px;
     box-shadow: 0 8px 18px rgba(0,0,0,0.3);
-    transition: 0.3s;
 }
 
 .slides {
@@ -209,6 +186,7 @@ section {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    flex-shrink: 0;
     user-select: none;
 }
 
@@ -243,7 +221,6 @@ table {
     overflow: hidden;
     box-shadow: 0 10px 24px rgba(0,0,0,0.18);
     font-size: 15px;
-    animation: fadeIn 1s ease both;
 }
 
 table thead {
@@ -253,6 +230,7 @@ table thead {
 
 table th {
     padding: 14px;
+    text-transform: uppercase;
     letter-spacing: 1px;
 }
 
@@ -293,12 +271,6 @@ button {
     color: white;
     font-weight: bold;
     cursor: pointer;
-    transition: 0.3s;
-}
-
-button:hover {
-    background: #00509d;
-    transform: scale(1.05);
 }
 
 /* =========================
@@ -328,11 +300,10 @@ footer {
     justify-content: center;
     font-size: 22px;
     box-shadow: 0 5px 14px rgba(0,0,0,0.3);
-    animation: pulse 2s infinite;
 }
 
 /* =========================
-   TITULOS
+   TITULOS DE SECCIONES
 ========================= */
 section h2 {
     display: inline-block;
@@ -344,27 +315,24 @@ section h2 {
     font-weight: 800;
 }
 
-/* =========================
-   ANIMACIONES
-========================= */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(25px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes pulse {
-    0% {transform: scale(1);}
-    50% {transform: scale(1.1);}
-    100% {transform: scale(1);}
-}
-
 /* =========================================================
    📱 RESPONSIVE MOVIL
 ========================================================= */
 @media (max-width: 768px) {
 
-.menu-toggle {
-    display: flex;
+header {
+    flex-direction: column;
+    text-align: center;
+    padding: 15px;
+    gap: 12px;
+}
+
+.logo {
+    flex-direction: column;
+}
+
+.logo img {
+    margin-bottom: 6px;
 }
 
 nav ul {
@@ -374,12 +342,6 @@ nav ul {
     box-shadow: 0 6px 16px rgba(0, 51, 102, 0.2);
     overflow: hidden;
     margin-top: 10px;
-    max-height: 0;
-    transition: max-height 0.4s ease;
-}
-
-nav ul.active {
-    max-height: 600px;
 }
 
 nav ul li {
@@ -393,6 +355,10 @@ nav ul li a {
     border-bottom: 1px solid #f0f0f0;
 }
 
+nav ul li a:hover {
+    background: #d9ecff;
+}
+
 .banner img {
     height: 200px;
 }
@@ -402,15 +368,23 @@ nav ul li a {
     top: 6px;
     max-width: 75%;
     padding: 6px 10px;
+    background: rgba(255,255,255,0.75);
 }
 
-/* TÍTULOS */
+.overlay h2 {
+    font-size: 0.9rem;
+    line-height: 1.1;
+}
+
+.overlay p {
+    font-size: 0.65rem;
+}
+
 section h2 {
     font-size: 1rem;
     padding: 5px 14px;
 }
 
-/* SLIDER */
 .slider {
     max-width: 320px;
 }
@@ -418,7 +392,7 @@ section h2 {
 }
 
 /* =========================================================
-   📱 TABLAS MÓVIL
+   📱 TABLA CELULARES PEQUEÑOS
 ========================================================= */
 @media (max-width: 600px) {
 
@@ -427,8 +401,7 @@ table {
     width: 95%;
 }
 
-table th,
-table td {
+table th, table td {
     padding: 10px;
 }
 
