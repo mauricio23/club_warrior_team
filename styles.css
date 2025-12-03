@@ -323,6 +323,12 @@ section h2 {
         padding: 20px;
     }
 
+    
+    /* OCULTAR TEXTO DEL BANNER EN MOVIL */
+    .overlay {
+        display: none;
+    }
+
     .logo {
         flex-direction: column;
     }
