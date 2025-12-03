@@ -313,7 +313,7 @@ section h2 {
 }
 
 /* =========================
-   RESPONSIVE
+   RESPONSIVE MENÚ + BANNER
 ========================= */
 @media (max-width: 768px) {
 
@@ -323,7 +323,6 @@ section h2 {
         padding: 20px;
     }
 
-    
     /* OCULTAR TEXTO DEL BANNER EN MOVIL */
     .overlay {
         display: none;
@@ -389,19 +388,6 @@ section h2 {
         height: 220px;
     }
 
-    .overlay {
-        max-width: 85%;
-        padding: 6px 10px;
-    }
-
-    .overlay h2 {
-        font-size: 1rem;
-    }
-
-    .overlay p {
-        font-size: 0.7rem;
-    }
-
     section h2 {
         font-size: 1.2rem;
     }
@@ -423,19 +409,13 @@ section h2 {
         padding: 10px;
     }
 }
-/* =========================
-   ICONO INSTAGRAM ANIMADO
-========================= */
-.instagram-link i.fab.fa-instagram {
-    font-size: 1.5rem;
-    background: linear-gradient(45deg, #feda75, #fa7e1e, #d62976, #962fbf, #4f5bd5);
-    background-size: 400% 400%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: instagram-gradient 3s ease infinite;
-}
 
+/* =========================
+   ICONO INSTAGRAM
+========================= */
+.instagram-link i.fab.fa-instagram,
 .instagram-link {
+    font-size: 1.5rem;
     font-weight: bold;
     text-decoration: none;
     background: linear-gradient(45deg, #feda75, #fa7e1e, #d62976, #962fbf, #4f5bd5);
@@ -449,4 +429,80 @@ section h2 {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
+}
+
+/* =========================
+   FORMULARIO ESTILO PRO
+========================= */
+#contacto form {
+    background: white;
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    margin-top: 20px;
+}
+
+#contacto label {
+    font-weight: bold;
+    color: #003366;
+    margin-top: 10px;
+    display: block;
+    text-align: left;
+}
+
+#contacto input,
+#contacto textarea {
+    width: 100%;
+    padding: 12px;
+    margin-top: 6px;
+    border-radius: 10px;
+    border: 2px solid #dce7f3;
+    font-size: 15px;
+    outline: none;
+    transition: 0.3s;
+}
+
+#contacto textarea {
+    resize: none;
+    min-height: 120px;
+}
+
+#contacto input:focus,
+#contacto textarea:focus {
+    border-color: #00509d;
+    box-shadow: 0 0 8px rgba(0,80,157,0.3);
+}
+
+#contacto button {
+    margin-top: 15px;
+    padding: 14px;
+    background: linear-gradient(135deg, #003366, #00509d);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+#contacto button:hover {
+    background: linear-gradient(135deg, #00509d, #003366);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.2);
+}
+
+/* =========================
+   FORMULARIO RESPONSIVE
+========================= */
+@media (max-width: 600px) {
+    #contacto form {
+        padding: 18px;
+        border-radius: 12px;
+    }
+
+    #contacto button {
+        font-size: 15px;
+        padding: 12px;
+    }
 }
