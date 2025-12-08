@@ -7,110 +7,540 @@
     box-sizing: border-box;
 }
 
-html, body {
-    overflow-x: hidden;
-}
+html, body { overflow-x: hidden; }
 
-/* =========================
-   BODY GENERAL
-========================= */
 body {
     font-family: Arial, sans-serif;
-    background: linear-gradient(160deg, #f0f8ff, #dbeeff);
     color: #003366;
     line-height: 1.6;
+    background: linear-gradient(160deg, #f0f8ff, #aed6f1),
+                repeating-linear-gradient(
+                    45deg,
+                    rgba(0, 51, 102, 0.03) 0px,
+                    rgba(0, 51, 102, 0.03) 20px,
+                    transparent 20px,
+                    transparent 40px
+                );
+    background-blend-mode: overlay;
+    background-attachment: fixed;
 }
 
 /* =========================
-   SECCIÓN ENTRENADORES
+   HEADER
 ========================= */
-#entrenadores {
-    padding: 40px 15px;
-    background: transparent;
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #003366;
+    color: white;
+    flex-wrap: wrap;
+    position: relative;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 70px;
+    margin-right: 1rem;
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.8rem;
+    cursor: pointer;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 2rem;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    color: #ffc107;
+    text-shadow: 0 0 8px rgba(255,255,255,0.4);
+}
+
+/* =========================
+   SECTIONS
+========================= */
+section {
+    padding: 2rem;
     text-align: center;
 }
 
-#entrenadores h2 {
-    margin-bottom: 25px;
-    font-size: 2rem;
-}
-
 /* =========================
-   GRID ENTRENADORES
+   BANNER
 ========================= */
-.entrenadores-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
-    max-width: 1100px;
-    margin: auto;
+.banner {
+    position: relative;
+}
+
+.banner img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+}
+
+.overlay {
+    position: absolute;
+    top: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255,255,255,0.85);
+    padding: 8px 14px;
+    border-radius: 10px;
+    max-width: 70%;
+    text-align: center;
+    backdrop-filter: blur(4px);
+}
+
+.overlay h3 {
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: #1B4F72;
+    margin-bottom: 5px;
+}
+
+.overlay p {
+    font-size: 0.9rem;
+    color: #0B3C5D;
 }
 
 /* =========================
-   TARJETA ENTRENADOR
+   GRIDS
+========================= */
+.entrenadores-grid,
+.planes-grid,
+.galeria-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+/* =========================
+   ENTRENADORES PRO
 ========================= */
 .entrenador {
-    background: #ffffff;
-    border-radius: 18px;
+    background: #f5f9ff;
     overflow: hidden;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
-    transition: transform .3s ease, box-shadow .3s ease;
+    text-align: center;
+    position: relative;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease;
 }
 
-/* EFECTO HOVER */
-.entrenador:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 14px 30px rgba(0,0,0,0.2);
-}
-
-/* =========================
-   IMAGEN ENTRENADOR SIN CORTAR
-========================= */
 .entrenador img {
     width: 100%;
-    height: auto;
-    max-height: 360px;         /* límite elegante */
-    object-fit: contain;      /* NO se corta */
-    background-color: #f0f4f9;/* fondo si sobra espacio */
-    padding: 8px;
-    border-radius: 18px 18px 0 0;
-    display: block;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 16px 16px 0 0;
+    transition: transform .4s ease, filter .4s ease;
 }
 
-/* =========================
-   NOMBRE ENTRENADOR
-========================= */
+.entrenador:hover img {
+    transform: scale(1.08);
+    filter: brightness(0.9);
+}
+
+.entrenador:hover {
+    transform: translateY(-6px);
+}
+
 .entrenador h3 {
-    margin: 12px;
+    margin: 12px 0 6px;
     font-size: 1.2rem;
     color: #003366;
     font-weight: bold;
 }
 
-/* =========================
-   TEXTO ENTRENADOR
-========================= */
 .entrenador p {
-    padding: 0 12px 16px;
     font-size: 0.95rem;
+    padding: 0 12px 16px;
     color: #444;
-    text-align: justify;
 }
 
 /* =========================
-   RESPONSIVE MÓVIL
+   SLIDER
 ========================= */
+.slider {
+    position: relative;
+    width: 460px;
+    max-width: 95%;
+    aspect-ratio: 1/1;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 16px;
+    box-shadow: 0 8px 18px rgba(0,0,0,0.3);
+}
+
+.slides {
+    display: flex;
+    height: 100%;
+    transition: transform 0.4s ease-in-out;
+}
+
+.slides img {
+    min-width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 16px;
+}
+
+/* FLECHAS */
+.prev { 
+    left: 8px; 
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.65);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    padding: 10px;
+    cursor: pointer;
+}
+.next { 
+    right: 8px; 
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.65);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.prev:hover, .next:hover {
+    background: #003366;
+}
+
+/* =========================
+   CARDS PLANES
+========================= */
+.plan {
+    background: #f5f9ff;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+    transition: transform 0.3s ease;
+}
+
+.plan:hover {
+    transform: translateY(-6px);
+}
+
+.icono-plan-img {
+    width: 170px;
+    height: 170px;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto 10px;
+    background: white;
+    border-radius: 50%;
+    padding: 8px;
+    border: 2px solid #cfe2f5;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+    transition: all 0.3s ease;
+}
+
+.plan:hover .icono-plan-img {
+    transform: scale(1.12) rotate(2deg);
+    box-shadow: 0 10px 26px rgba(0,0,0,0.35);
+    border-color: #00509d;
+}
+
+/* =========================
+   TABLA
+========================= */
+table {
+    width: 100%;
+    max-width: 850px;
+    margin: 40px auto;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 24px rgba(0,0,0,0.18);
+    font-size: 15px;
+}
+
+table thead {
+    background: linear-gradient(135deg, #003366, #00509d);
+    color: white;
+}
+
+table th {
+    padding: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+table td {
+    padding: 13px;
+    color: #003366;
+    border-bottom: 1px solid #e6eef7;
+}
+
+table tbody tr:nth-child(even) {
+    background-color: #f4f9ff;
+}
+
+table tbody tr:hover {
+    background: #d9ecff;
+    transform: scale(1.02);
+}
+
+/* =========================
+   FORMULARIO
+========================= */
+#contacto form {
+    background: white;
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    margin-top: 20px;
+}
+
+#contacto label {
+    font-weight: bold;
+    color: #003366;
+    margin-top: 10px;
+    display: block;
+    text-align: left;
+}
+
+#contacto input,
+#contacto textarea {
+    width: 100%;
+    padding: 12px;
+    margin-top: 6px;
+    border-radius: 10px;
+    border: 2px solid #dce7f3;
+    font-size: 15px;
+    outline: none;
+    transition: 0.3s;
+}
+
+#contacto textarea {
+    resize: none;
+    min-height: 120px;
+}
+
+#contacto input:focus,
+#contacto textarea:focus {
+    border-color: #00509d;
+    box-shadow: 0 0 8px rgba(0,80,157,0.3);
+}
+
+#contacto button {
+    margin-top: 15px;
+    padding: 14px;
+    background: linear-gradient(135deg, #003366, #00509d);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+#contacto button:hover {
+    background: linear-gradient(135deg, #00509d, #003366);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.2);
+}
+
+/* =========================
+   FOOTER
+========================= */
+footer {
+    background: #003366;
+    color: white;
+    padding: 1.5rem;
+    text-align: center;
+}
+
+/* =========================
+   WHATSAPP
+========================= */
+.whatsapp-float {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    width: 60px;
+    height: 60px;
+    background: #25D366;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+    animation: pulso 1.8s infinite;
+}
+
+@keyframes pulso {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.08); }
+    100% { transform: scale(1); }
+}
+
+/* =========================
+   TITULOS
+========================= */
+section h2 {
+    background: linear-gradient(135deg, #003366, #00509d);
+    color: white;
+    display: inline-block;
+    padding: 6px 18px;
+    border-radius: 8px;
+    margin-bottom: 25px;
+    font-weight: 800;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 768px) {
+
+    header {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .overlay {
+        display: block;
+        bottom: 15px;
+        top: auto;
+        background: rgba(0,0,0,0.55);
+        color: white;
+        max-width: 90%;
+        padding: 8px 12px;
+    }
+
+    .overlay h3 { font-size: 1rem; color: white; }
+    .overlay p { font-size: 0.8rem; color: #e6f2ff; }
+
+    .logo {
+        flex-direction: column;
+    }
+
+    .logo img {
+        margin: 0 0 10px 0;
+    }
+
+    nav {
+        width: 100%;
+        margin-top: 15px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        width: 100%;
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+        padding: 10px 0;
+        display: none;
+    }
+
+    nav ul.active { display: flex; }
+
+    nav ul li {
+        margin: 0;
+        border-bottom: 1px solid #eee;
+    }
+
+    nav ul li:last-child { border-bottom: none; }
+
+    nav ul li a {
+        display: block;
+        padding: 12px;
+        color: #003366;
+        font-size: 1rem;
+    }
+
+    nav ul li a:hover {
+        background: #e8f4ff;
+        color: #00509d;
+        font-weight: bold;
+    }
+
+    .menu-toggle {
+        display: block;
+        position: absolute;
+        right: 20px;
+        top: 25px;
+    }
+
+    .banner img { height: 220px; }
+
+    section h2 { font-size: 1.2rem; }
+
+    .slider {
+        max-width: 350px;
+        width: 90%;
+    }
+}
+
 @media (max-width: 480px) {
 
-    #entrenadores h2 {
-        font-size: 1.6rem;
+    body { font-size: 14px; }
+
+    section { padding: 1.5rem 1rem; }
+
+    .entrenador img { height: 220px; }
+
+    .icono-plan-img {
+        width: 100px;
+        height: 100px;
     }
 
-    .entrenador img {
-        max-height: 300px;
-    }
+    .slider { max-width: 300px; }
+}
 
-    .entrenador p {
-        font-size: 0.9rem;
-    }
+/* =========================
+   ICONO INSTAGRAM
+========================= */
+.instagram-link i.fab.fa-instagram,
+.instagram-link {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+    background: linear-gradient(45deg, #feda75, #fa7e1e, #d62976, #962fbf, #4f5bd5);
+    background-size: 400% 400%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: instagram-gradient 3s ease infinite;
+}
+
+@keyframes instagram-gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
