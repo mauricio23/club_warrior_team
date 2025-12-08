@@ -501,6 +501,10 @@ section h2 {
     .entrenador img { max-height: 240px; }
     .icono-plan-img { width: 100px; height: 100px; }
     .slider { max-width: 300px; }
+    /* ✅ OCULTAR MENSAJE DEL BANNER EN CELULAR */
+    .overlay {
+        display: none;
+    }
 }
 
 /* =========================
