@@ -137,27 +137,31 @@ section {
 }
 
 /* =========================
-   ENTRENADORES PRO (CORREGIDO)
+   ENTRENADORES PRO
 ========================= */
 .entrenador {
-    background: #ffffff;
+    background: #f5f9ff;
     overflow: hidden;
     text-align: center;
     position: relative;
-    border-radius: 18px;
+    border-radius: 16px;
     box-shadow: 0 10px 25px rgba(0,0,0,0.15);
     transition: transform 0.3s ease;
 }
 
 .entrenador img {
     width: 100%;
-    height: auto;
-    max-height: 350px;
-    object-fit: contain;   /* ✅ NO RECORTA */
-    background: #f4f7fb;
-    padding: 6px;
-    border-radius: 18px 18px 0 0;
-    display: block;
+    height: auto;              /* ✅ corregido */
+    max-height: 340px;         /* ✅ limite elegante */
+    object-fit: contain;       /* ✅ no recorte */
+    background: #f4f7fb;       /* relleno */
+    border-radius: 16px 16px 0 0;
+    transition: transform .4s ease, filter .4s ease;
+}
+
+.entrenador:hover img {
+    transform: scale(1.05);
+    filter: brightness(0.95);
 }
 
 .entrenador:hover {
@@ -175,7 +179,6 @@ section {
     font-size: 0.95rem;
     padding: 0 12px 16px;
     color: #444;
-    text-align: justify;
 }
 
 /* =========================
@@ -205,8 +208,10 @@ section {
     border-radius: 16px;
 }
 
-/* FLECHAS */
-.prev, .next {
+/* =========================
+   FLECHAS SLIDER
+========================= */
+.prev, .next { 
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -217,7 +222,6 @@ section {
     padding: 10px;
     cursor: pointer;
 }
-
 .prev { left: 8px; }
 .next { right: 8px; }
 
@@ -226,7 +230,7 @@ section {
 }
 
 /* =========================
-   PLANES
+   CARDS PLANES
 ========================= */
 .plan {
     background: #f5f9ff;
@@ -245,7 +249,19 @@ section {
     height: 170px;
     object-fit: contain;
     display: block;
-    margin: auto;
+    margin: 0 auto 10px;
+    background: white;
+    border-radius: 50%;
+    padding: 8px;
+    border: 2px solid #cfe2f5;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+    transition: all 0.3s ease;
+}
+
+.plan:hover .icono-plan-img {
+    transform: scale(1.12) rotate(2deg);
+    box-shadow: 0 10px 26px rgba(0,0,0,0.35);
+    border-color: #00509d;
 }
 
 /* =========================
@@ -256,10 +272,38 @@ table {
     max-width: 850px;
     margin: 40px auto;
     border-collapse: separate;
+    border-spacing: 0;
     background: white;
     border-radius: 16px;
     overflow: hidden;
     box-shadow: 0 10px 24px rgba(0,0,0,0.18);
+    font-size: 15px;
+}
+
+table thead {
+    background: linear-gradient(135deg, #003366, #00509d);
+    color: white;
+}
+
+table th {
+    padding: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+table td {
+    padding: 13px;
+    color: #003366;
+    border-bottom: 1px solid #e6eef7;
+}
+
+table tbody tr:nth-child(even) {
+    background-color: #f4f9ff;
+}
+
+table tbody tr:hover {
+    background: #d9ecff;
+    transform: scale(1.02);
 }
 
 /* =========================
@@ -269,6 +313,58 @@ table {
     background: white;
     padding: 25px;
     border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    margin-top: 20px;
+}
+
+#contacto label {
+    font-weight: bold;
+    color: #003366;
+    margin-top: 10px;
+    display: block;
+    text-align: left;
+}
+
+#contacto input,
+#contacto textarea {
+    width: 100%;
+    padding: 12px;
+    margin-top: 6px;
+    border-radius: 10px;
+    border: 2px solid #dce7f3;
+    font-size: 15px;
+    outline: none;
+    transition: 0.3s;
+}
+
+#contacto textarea {
+    resize: none;
+    min-height: 120px;
+}
+
+#contacto input:focus,
+#contacto textarea:focus {
+    border-color: #00509d;
+    box-shadow: 0 0 8px rgba(0,80,157,0.3);
+}
+
+#contacto button {
+    margin-top: 15px;
+    padding: 14px;
+    background: linear-gradient(135deg, #003366, #00509d);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+#contacto button:hover {
+    background: linear-gradient(135deg, #00509d, #003366);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.2);
 }
 
 /* =========================
@@ -293,6 +389,17 @@ footer {
     background: #25D366;
     color: white;
     border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+    animation: pulso 1.8s infinite;
+}
+
+@keyframes pulso {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.08); }
+    100% { transform: scale(1); }
 }
 
 /* =========================
@@ -304,11 +411,115 @@ section h2 {
     display: inline-block;
     padding: 6px 18px;
     border-radius: 8px;
+    margin-bottom: 25px;
+    font-weight: 800;
 }
 
 /* =========================
    RESPONSIVE
 ========================= */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .overlay {
+        display: block;
+        bottom: 15px;
+        top: auto;
+        background: rgba(0,0,0,0.55);
+        color: white;
+        max-width: 90%;
+        padding: 8px 12px;
+    }
+
+    .overlay h3 { font-size: 1rem; color: white; }
+    .overlay p { font-size: 0.8rem; color: #e6f2ff; }
+
+    .logo {
+        flex-direction: column;
+    }
+
+    .logo img {
+        margin: 0 0 10px 0;
+    }
+
+    nav {
+        width: 100%;
+        margin-top: 15px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        width: 100%;
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+        padding: 10px 0;
+        display: none;
+    }
+
+    nav ul.active { display: flex; }
+
+    nav ul li {
+        margin: 0;
+        border-bottom: 1px solid #eee;
+    }
+
+    nav ul li:last-child { border-bottom: none; }
+
+    nav ul li a {
+        display: block;
+        padding: 12px;
+        color: #003366;
+        font-size: 1rem;
+    }
+
+    nav ul li a:hover {
+        background: #e8f4ff;
+        color: #00509d;
+        font-weight: bold;
+    }
+
+    .menu-toggle {
+        display: block;
+        position: absolute;
+        right: 20px;
+        top: 25px;
+    }
+
+    .banner img { height: 220px; }
+    section h2 { font-size: 1.2rem; }
+    .slider { max-width: 350px; width: 90%; }
+}
+
 @media (max-width: 480px) {
-    .entrenador img { max-height: 250px; }
+    body { font-size: 14px; }
+    section { padding: 1.5rem 1rem; }
+    .entrenador img { max-height: 240px; }
+    .icono-plan-img { width: 100px; height: 100px; }
+    .slider { max-width: 300px; }
+}
+
+/* =========================
+   INSTAGRAM
+========================= */
+.instagram-link i.fab.fa-instagram,
+.instagram-link {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+    background: linear-gradient(45deg, #feda75, #fa7e1e, #d62976, #962fbf, #4f5bd5);
+    background-size: 400% 400%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: instagram-gradient 3s ease infinite;
+}
+
+@keyframes instagram-gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
